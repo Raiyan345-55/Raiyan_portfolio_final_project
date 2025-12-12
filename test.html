@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit Tests</title>
+</head>
+<body>
+    <h1>Unit Test Results</h1>
+    <p id="test-result"></p>
+
+    <script src="functions.js"></script> 
+
+    <script>
+
+        function runTests() {
+            let passed = true;
+            let results = [];
+            
+            // Test Case 1: Testing add(a, b)
+            const expected = 5;
+            const actual = add(2, 3);
+            
+            if (actual === expected) {
+                results.push(`PASS: add(2, 3) returned ${actual}`);
+            } else {
+                results.push(`FAIL: add(2, 3). Expected ${expected}, got ${actual}`);
+                passed = false;
+            }
+
+            // Test Case 2: Testing with zero
+            const expected2 = 10;
+            const actual2 = add(10, 0);
+
+            if (actual2 === expected2) {
+                results.push(`PASS: add(10, 0) returned ${actual2}`);
+            } else {
+                results.push(`FAIL: add(10, 0). Expected ${expected2}, got ${actual2}`);
+                passed = false;
+            }
+
+           
+            const resultElement = document.getElementById('test-result');
+            resultElement.innerHTML = results.join('<br>');
+            resultElement.style.color = passed ? 'green' : 'red';
+        }
+
+       
+        window.onload = runTests;
+    </script>
+</body>
+</html>
