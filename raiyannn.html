@@ -35,6 +35,28 @@
             <a href="#"><i class="fab fa-twitter"></i></a> <a href="#"><i class="fa-solid fa-at"></i></a> </div>
 
     </div>
+    <script>
+        const scriptURL =  https://script.google.com/macros/s/AKfycbyzE-IBBKzek-wmAWMQjdKRvW7DXl9nQ1jMOwjGzkuTOzfxunRuXP_-vyaNiodpI_F6/exec 
+
+    const form = document.getElementById('contactForm'); 
+
+    form.addEventListener('submit', e => {
+      e.preventDefault(); 
+      
+     
+
+      
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          alert('Successfully Entered!!! Check your Data sheet!!!!');
+          form.reset();
+        })
+        .catch(error => {
+          alert('there is a problem!!!!'); 
+          console.error('Error!', error.message);
+        });
+    });
+</script
     
 </body>
 </html>
