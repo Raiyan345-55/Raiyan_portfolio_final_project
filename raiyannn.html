@@ -3,60 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raiyan - Portfolio Home</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title>Raiyan's Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #fdf5f0; color: #5a3e2b; }
+        nav { background: #efe0d5; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
+        nav a { margin: 0 15px; text-decoration: none; color: #5a3e2b; font-weight: bold; }
+        .hero { display: flex; align-items: center; justify-content: center; padding: 50px; min-height: 80vh; gap: 50px; }
+        .hero img { width: 350px; border-radius: 20px; }
+        .text-content h1 { font-size: 3rem; margin: 0; }
+        .text-content .name { color: #e28a7d; }
+        .btn { padding: 10px 25px; border: none; cursor: pointer; font-weight: bold; margin-right: 10px; border-radius: 5px; }
+        .next-btn { background: #b18d71; color: white; }
+        .cv-btn { background: #b18d71; color: white; text-decoration: none; display: inline-block; }
+        section { padding: 80px 20px; text-align: center; }
+        form { max-width: 500px; margin: 0 auto; text-align: left; background: white; padding: 30px; border-radius: 10px; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        .send-btn { background: #5a3e2b; color: white; width: auto; cursor: pointer; float: right; }
+    </style>
 </head>
 <body>
 
-    <div class="hero-container">
-        
-        <div class="content-area">
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#achievement">ACHIEVEMENT</a>
+    </nav>
+
+    <section id="home" class="hero">
+        <img src="your-image.png" alt="Raiyan Illustration"> <div class="text-content">
+            <h1>Hello!! I'm <span class="name">Raiyan</span></h1>
+            <p>I'm an undergraduate bachelor's student at International Islamic University Chittagong</p>
+            <p><strong>Coder || Learner</strong></p>
             
-            <div class="illustration">
-                <img src="your-image.png" alt="Raiyan's Profile Illustration">
-            </div>
-
-            <div class="text-content">
-                <p class="greeting">Hello!! I'm <span class="name">Raiyan</span></p>
-                <p class="bio">I'm an undergraduate bachelor's student at International Islamic University Chittagong</p>
-                <p class="role">Coder || Learner</p>
-
-                <button class="next-button">
-                    Next <span class="arrow">&rarr;</span>
-                </button>
+            <div style="margin-top: 25px;">
+                <button class="btn next-btn">Next &rarr;</button>
+                
+                <a href="Raiyan_CV.pdf" download class="btn cv-btn">
+                    CV <i class="fa-solid fa-download"></i>
+                </a>
             </div>
         </div>
+    </section>
 
-        <div class="social-sidebar">
-            <a href="#"><i class="fab fa-facebook-messenger"></i></a>
-            <a href="#"><i class="fa-solid fa-chart-bar"></i></a> <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a> <a href="#"><i class="fa-solid fa-at"></i></a> </div>
+    <section id="projects" style="background: #fff;">
+        <h2>PROJECTS</h2>
+        <p>sorry dont have any</p>
+    </section>
 
-    </div>
+    <section id="achievement">
+        <h2>ACHIEVEMENT</h2>
+        <p>i havw nothing</p>
+    </section>
+
+    <section id="contact" style="background: #efe0d5;">
+        <h2>CONTACT ME</h2>
+        <form id="contactForm">
+            <label>NAME:</label>
+            <input type="text" name="name" required>
+            <label>EMAIL:</label>
+            <input type="email" name="email" required>
+            <label>MESSAGE:</label>
+            <textarea name="message" rows="4" required></textarea>
+            <button type="submit" class="btn send-btn">SEND</button>
+        </form>
+    </section>
+
     <script>
-        const scriptURL =  https://script.google.com/macros/s/AKfycbyzE-IBBKzek-wmAWMQjdKRvW7DXl9nQ1jMOwjGzkuTOzfxunRuXP_-vyaNiodpI_F6/exec 
+        const scriptURL = https://script.google.com/macros/s/AKfycbyIy5WYA3NcWsCmjeZps20Y7sQwk0ZlyaqkXZPewO6CNAvl-kEBFm8L28yN5eKiy0cjJA/exec
+        const form = document.forms['contactForm'];
 
-    const form = document.getElementById('contactForm'); 
-
-    form.addEventListener('submit', e => {
-      e.preventDefault(); 
-      
-     
-
-      
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-          alert('Successfully Entered!!! Check your Data sheet!!!!');
-          form.reset();
-        })
-        .catch(error => {
-          alert('there is a problem!!!!'); 
-          console.error('Error!', error.message);
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    alert('Successfully Entered!!! Check your Data sheet!!!!'); 
+                    form.reset();
+                })
+                .catch(error => alert('Error! ' + error.message));
         });
-    });
-</script
-    
+    </script>
+
 </body>
 </html>
